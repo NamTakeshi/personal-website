@@ -2,6 +2,7 @@
 import { ref } from "vue"
 import ModalWindow from "./ModalWindow.vue"
 
+// Test
 // active hält den Schlüssel des aktuell offenen Modals:
 // mögliche Werte: "about", "links", "work" oder null (kein Modal offen)
 const active = ref(null)

@@ -1,3 +1,7 @@
+        <!-- Inhalt (Slot) -->
+        <div class="overflow-y-auto p-6 text-left h-[calc(520px-44px)] max-sm:p-4 max-sm:h-[calc(560px-44px)]">
+          <!-- Schließen-Button: pointerdown stoppen (kein Drag starten) und click stoppen,
+               dann emit('close') aufrufen -->
 <script setup>
 import { ref, watch, nextTick, onBeforeUnmount } from "vue"
 
@@ -134,7 +138,7 @@ function onPointerUp(e) {
     <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30" @click="onBackdropClick">
       <div
           ref="modalRef"
-          class="relative overflow-hidden w-[760px] max-w-[92vw] h-[520px] rounded-xl border-2 border-black/30 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)]"
+          class="relative overflow-hidden w-[760px] max-w-[92vw] h-[520px] rounded-xl border-2 border-black/30 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)] max-sm:h-[560px]"
           :style="{
     transform: `translate(-50%,-50%) translate(${offset.x}px, ${offset.y}px)`,
     left: '50%',
