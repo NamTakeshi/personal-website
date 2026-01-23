@@ -43,15 +43,40 @@ const items = [
   },
 ]
 
+// Klick Sound
+const clickSound = new Audio("/sounds/click.mp3")
+clickSound.volume = 0.4
+
 // Öffnet ein Modal anhand des Schlüssels (z.B. "about")
 function openModal(key) {
+  // Klick-Sound abspielen (immer von vorne)
+  try {
+    clickSound.currentTime = 0
+    clickSound.play()
+  } catch (err) {
+    // Falls Audio blockiert wird, ignorieren wir es
+    console.warn("Klick-Sound konnte nicht abgespielt werden:", err)
+  }
+
+  // Modal öffnen
   active.value = key
 }
 
+
 // Schließt das aktuell offene Modal
 function closeModal() {
+
+  try {
+    clickSound.currentTime = 0
+    clickSound.play()
+  } catch (err) {
+    // Falls Audio blockiert wird, ignorieren wir es
+    console.warn("Klick-Sound konnte nicht abgespielt werden:", err)
+  }
+
   active.value = null
 }
+
 </script>
 
 <template>
