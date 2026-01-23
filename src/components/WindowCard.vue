@@ -62,6 +62,14 @@ function openModal(key) {
   active.value = key
 }
 
+// merkt sich, welche FAQ offen ist (Index oder null)
+const openFaq = ref(null)
+
+function toggleFaq(index) {
+  // Wenn dieselbe Frage nochmal geklickt wird → schließen
+  openFaq.value = openFaq.value === index ? null : index
+}
+
 
 // Schließt das aktuell offene Modal
 function closeModal() {
@@ -100,18 +108,118 @@ function closeModal() {
     </div>
   </div>
 
-  <!-- ABOUT Modal -->
-  <ModalWindow title="about" :open="active === 'about'" @close="closeModal">
-    <!-- leer gelassen -->
+  <!-- ABOUT Modal: Inhalt ergänzt -->
+  <ModalWindow title="about" :open="active === 'about'" :initial-x="-120" :initial-y="150" @close="closeModal">
+
+    <div class="flex items-start gap-4">
+      <!-- Profilbild links -->
+      <img
+          src="/images/me.png"
+          alt="Nam"
+          class="w-24 h-24 rounded-full object-cover border border-black/10 shrink-0"
+      />
+
+      <!-- Text rechts daneben -->
+      <div class="grid gap-2 mb-10">
+        <p class="text-neutral-700 mt-10">
+          Heyy! I’m Nam, a 23-year-old based in Berlin
+          who’s into tech, filmmaking, and photography.
+          It's nice to see you here! ^^
+        </p>
+      </div>
+    </div>
+
+    <div class="grid gap-1 mb-5">
+      <p class="font-semibold">EDUCATION:</p>
+      <p>Bachelor of Science in Business Informatics</p>
+      <p class="text-sm text-neutral-600">2024–2027, HTW Berlin</p>
+    </div>
+
+    <div class="grid gap-1 mb-5">
+      <p class="font-semibold">TECH STACK:</p>
+      <ul class="list-disc pl-5 text-neutral-700">
+        <li>java, javascript, html/css & vue.js</li>
+        <li>sql & r</li>
+      </ul>
+    </div>
+
+    <div class="grid gap-1 mb-5">
+      <p class="font-semibold">MY CAMERAS:</p>
+      <ul class="list-disc pl-5 text-neutral-700">
+        <li>sony a7 iv</li>
+        <li>soon iphone 17 pro :)</li>
+      </ul>
+    </div>
+
+    <div class="grid gap-4">
+      <h3 class="text-lg font-semibold">FAQ:</h3>
+
+      <!-- FAQ Item 1 -->
+      <div class="rounded-lg border border-black/10 text-neutral-700">
+        <button
+            class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
+            @click="toggleFaq(0)"
+        >
+          <span>Why did you come to the tech industry?</span>
+          <span class="text-neutral-400">{{ openFaq === 0 ? "–" : "+" }}</span>
+        </button>
+
+        <div v-if="openFaq === 0" class="px-4 pb-4 text-neutral-700">
+          → I was looking for a field of study and chose business and tech because it lets
+          me build cool apps and websites like this one, while staying relevant in a world
+          shaped by new technologies.
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="rounded-lg border border-black/10 text-neutral-700">
+        <button
+            class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
+            @click="toggleFaq(1)"
+        >
+          <span>How did you start filmmaking and photography?</span>
+          <span class="text-neutral-400">{{ openFaq === 1 ? "–" : "+" }}</span>
+        </button>
+
+        <div v-if="openFaq === 1" class="px-4 pb-4 text-neutral-700">
+          → I once rented a digital camera to take photos for friends and to record my
+          self-development journey. Since then, I’ve loved creating visuals and eventually
+          bought a professional camera.
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="rounded-lg border border-black/10 text-neutral-700">
+        <button
+            class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
+            @click="toggleFaq(2)"
+        >
+          <span>What else do you enjoy doing in your free time?</span>
+          <span class="text-neutral-400">{{ openFaq === 2 ? "–" : "+" }}</span>
+        </button>
+
+        <div v-if="openFaq === 2" class="px-4 pb-4 text-neutral-700">
+          <p>→ In my free time, I like to:</p>
+          <ul class="list-disc pl-5 mt-1">
+            <li>go swimming or running</li>
+            <li>work out (mostly calisthenics)</li>
+            <li>chill and watch series</li>
+            <li>spend quality time with family and friends</li>
+            <li>hike in nature and explore new places!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </ModalWindow>
 
   <!-- LINKS Modal -->
-  <ModalWindow title="links" :open="active === 'links'" @close="closeModal">
+  <ModalWindow title="links" :open="active === 'links'" :initial-x="120" :initial-y="-150" @close="closeModal">
     <!-- leer gelassen -->
   </ModalWindow>
 
   <!-- WORK Modal -->
-  <ModalWindow title="work" :open="active === 'work'" @close="closeModal">
+  <ModalWindow title="work" :open="active === 'work'" :initial-x="120" :initial-y="150" @close="closeModal">
     <!-- leer gelassen -->
   </ModalWindow>
 </template>

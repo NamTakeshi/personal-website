@@ -4,7 +4,12 @@ import { ref, watch, nextTick, onBeforeUnmount } from "vue"
 const props = defineProps({
   title: { type: String, required: true },
   open: { type: Boolean, default: false },
+
+  // neue Props:
+  initialX: { type: Number, default: 0 },
+  initialY: { type: Number, default: 0 },
 })
+
 const emit = defineEmits(["close"])
 
 // Backdrop-Klick
@@ -28,7 +33,7 @@ watch(
       window.addEventListener("keydown", handleKeyDown)
       // bei Öffnen zurück in die Mitte setzen (optional)
       nextTick(() => {
-        offset.value = { x: 0, y: 0 }
+        offset.value = { x: props.initialX, y: props.initialY }
       })
     } else {
       window.removeEventListener("keydown", handleKeyDown)
@@ -128,17 +133,17 @@ function onPointerUp(e) {
   <teleport to="body">
     <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30" @click="onBackdropClick">
       <div
-        ref="modalRef"
-        class="relative overflow-hidden w-[760px] max-w-[92vw] max-h-[80vh] rounded-xl border-2 border-black/30 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)]"
-        :style="{
-          /* zentriert + zusätzlicher Offset aus Drag (in px) */
-          transform: `translate(-50%,-50%) translate(${offset.x}px, ${offset.y}px)`,
-          left: '50%',
-          top: '50%',
-          position: 'fixed'
-        }"
+          ref="modalRef"
+          class="relative overflow-hidden w-[760px] max-w-[92vw] h-[520px] rounded-xl border-2 border-black/30 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)]"
+          :style="{
+    transform: `translate(-50%,-50%) translate(${offset.x}px, ${offset.y}px)`,
+    left: '50%',
+    top: '50%',
+    position: 'fixed'
+  }"
       >
-        <!-- Header ist das Drag-Handle. -->
+
+      <!-- Header ist das Drag-Handle. -->
         <div
           ref="headerRef"
           class="flex items-center justify-between h-11 px-4 text-base tracking-wide text-white bg-neutral-800"
@@ -160,9 +165,10 @@ function onPointerUp(e) {
         </div>
 
         <!-- Inhalt (Slot) -->
-        <div class="overflow-auto p-6 text-left">
+        <div class="h-[calc(520px-44px)] overflow-y-auto p-6 text-left">
           <slot />
         </div>
+
       </div>
     </div>
   </teleport>
