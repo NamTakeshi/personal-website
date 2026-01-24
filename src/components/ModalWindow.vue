@@ -1,7 +1,3 @@
-        <!-- Inhalt (Slot) -->
-        <div class="overflow-y-auto p-6 text-left h-[calc(520px-44px)] max-sm:p-4 max-sm:h-[calc(560px-44px)]">
-          <!-- Schließen-Button: pointerdown stoppen (kein Drag starten) und click stoppen,
-               dann emit('close') aufrufen -->
 <script setup>
 import { ref, watch, nextTick, onBeforeUnmount } from "vue"
 
