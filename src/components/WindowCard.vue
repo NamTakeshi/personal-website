@@ -48,6 +48,41 @@ const items = [
 const clickSound = new Audio("/sounds/click.mp3")
 clickSound.volume = 0.4
 
+const icons = {
+  linkedin: `
+    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+<style>.cls-1{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style>
+
+</defs>
+
+<g id="ic-social-linkedin">
+
+<rect class="cls-1" x="3" y="3" width="18" height="18" rx="6"/>
+
+<line class="cls-1" x1="7.63" y1="10.89" x2="7.63" y2="16.89"/>
+
+<path class="cls-1" d="M10.38,16.89v-3a3,3,0,0,1,3-3h0a3,3,0,0,1,3,3v3"/>
+
+<line class="cls-1" x1="7.63" y1="7.89" x2="7.63" y2="7.78"/>
+
+</g>
+
+</svg>
+  `,
+  github: `
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+  `,
+  mail: `
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z" stroke="currentColor" stroke-width="2"/>
+      <path d="M5.5 7l6.5 5 6.5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+}
+
 // Öffnet ein Modal anhand des Schlüssels (z.B. "about")
 function openModal(key) {
   // Klick-Sound abspielen (immer von vorne)
@@ -101,9 +136,9 @@ function closeModal() {
       <p class="mt-7 text-xl text-neutral-500/80">tech-enthusiast & filmmaker</p>
 
       <nav class="grid place-items-center mt-10 mx-auto max-w-[420px] grid-cols-3 gap-3">
-        <button v-for="item in items" :key="item.key" type="button" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-transform hover:-translate-y-0.5 hover:bg-black/5" @click="openModal(item.key)">
+        <button v-for="item in items" :key="item.key" type="button" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-transform hover:-translate-y-0.5 hover:bg-black/" @click="openModal(item.key)">
           <span class="block w-8 h-8 text-neutral-700" v-html="item.icon"></span>
-          <span class="text-sm text-neutral-700">{{ item.label }}</span>
+          <span class="text-xl text-neutral-700">{{ item.label }}</span>
         </button>
       </nav>
     </div>
@@ -215,9 +250,47 @@ function closeModal() {
   </ModalWindow>
 
   <!-- LINKS Modal -->
-  <ModalWindow title="links" :open="active === 'links'" :initial-x="120" :initial-y="-150" @close="closeModal">
-    <!-- leer gelassen -->
+  <ModalWindow title="links" :open="active === 'links'" :initial-x="120" :initial-y="-150" width="520px" height="300px" @close="closeModal">
+    <ul class="flex justify-center gap-15 mt-10">
+      <!-- GitHub -->
+      <li>
+        <a
+            href="https://github.com/NamTakeshi"
+            target="_blank"
+            rel="noreferrer"
+            class="social-btn github"
+        >
+          <i class="fa-brands fa-github"></i>
+          <span class="icon" v-html="icons.github"></span>
+        </a>
+      </li>
+
+      <!-- LinkedIn -->
+      <li>
+        <a
+            href="https://www.linkedin.com/in/nam-phan-a0870a270"
+            target="_blank"
+            rel="noreferrer"
+            class="social-btn linkedin"
+        >
+          <span class="icon" v-html="icons.linkedin"></span>
+        </a>
+      </li>
+
+      <!-- Email -->
+      <li>
+        <a
+            href="mailto:nam.phan.dev@gmail.com"
+            class="social-btn email"
+        >
+          <span class="icon" v-html="icons.mail"></span>
+        </a>
+      </li>
+    </ul>
+    <p class="mt-10 text-center text-gray-500">clicking any of the links will open a new tab!</p>
   </ModalWindow>
+
+
 
   <!-- WORK Modal -->
   <ModalWindow title="work" :open="active === 'work'" :initial-x="120" :initial-y="150" @close="closeModal">
@@ -226,5 +299,59 @@ function closeModal() {
 </template>
 
 <style scoped>
+.social-btn {
+  width: 100px;
+  height:100px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+  text-decoration: none;
+}
+
+.social-btn .icon {
+  width: 60px;
+  height: 60px;
+  color: #262626;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.social-btn:hover::before {
+  top: 0;
+}
+
+.social-btn:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+/* Farben pro Plattform */
+.social-btn.github::before {
+  background: grey;
+}
+
+.social-btn.linkedin::before {
+  background: #0077b5;
+}
+
+.social-btn.email::before {
+  background: #dd4b39;
+}
 
 </style>

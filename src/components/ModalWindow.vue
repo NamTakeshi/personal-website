@@ -8,6 +8,9 @@ const props = defineProps({
   // neue Props:
   initialX: { type: Number, default: 0 },
   initialY: { type: Number, default: 0 },
+
+  width: { type: String, default: "760px" },
+  height: { type: String, default: "520px" },
 })
 
 const emit = defineEmits(["close"])
@@ -136,6 +139,8 @@ function onPointerUp(e) {
           ref="modalRef"
           class="relative overflow-hidden w-[760px] max-w-[92vw] h-[520px] rounded-xl border-2 border-black/30 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)] max-sm:h-[560px]"
           :style="{
+    width: props.width,
+    height: props.height,
     transform: `translate(-50%,-50%) translate(${offset.x}px, ${offset.y}px)`,
     left: '50%',
     top: '50%',
