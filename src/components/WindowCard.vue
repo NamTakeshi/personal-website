@@ -152,7 +152,8 @@ function closeModal() {
       <img
           src="/images/me.png"
           alt="Nam"
-          class="w-24 h-24 rounded-full object-cover border border-black/10 shrink-0"
+          class="w-24 h-24 rounded-full object-cover border border-black/10 shrink-0
+                transition-transform duration-400 ease-in-out hover:scale-130"
       />
 
       <!-- Text rechts daneben -->
