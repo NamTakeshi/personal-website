@@ -4,7 +4,7 @@ import ModalWindow from "./ModalWindow.vue"
 
 // Test
 // active hält den Schlüssel des aktuell offenen Modals:
-// mögliche Werte: "about", "links", "work" oder null (kein Modal offen)
+// mögliche Werte: "about", "links", "work", webapp oder film (kein Modal offen)
 const active = ref(null)
 
 // Die Navigationselemente (label/key/icon). Einfach erweiterbar.
@@ -41,8 +41,29 @@ const items = [
         <path d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     `,
-  },
+  }
 ]
+
+const workIcons = {
+  app: `
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.1" d="M14 17.5C14 16.0955 14 15.3933 14.3371 14.8889C14.483 14.6705 14.6705 14.483 14.8889 14.3371C15.3933 14 16.0955 14 17.5 14V14V14C18.9045 14 19.6067 14 20.1111 14.3371C20.3295 14.483 20.517 14.6705 20.6629 14.8889C21 15.3933 21 16.0955 21 17.5V17.5V17.5C21 18.9045 21 19.6067 20.6629 20.1111C20.517 20.3295 20.3295 20.517 20.1111 20.6629C19.6067 21 18.9045 21 17.5 21V21V21C16.0955 21 15.3933 21 14.8889 20.6629C14.6705 20.517 14.483 20.3295 14.3371 20.1111C14 19.6067 14 18.9045 14 17.5V17.5V17.5Z" fill="#323232"/>
+<path opacity="0.1" d="M3 17.5C3 16.0955 3 15.3933 3.33706 14.8889C3.48298 14.6705 3.67048 14.483 3.88886 14.3371C4.39331 14 5.09554 14 6.5 14V14V14C7.90446 14 8.60669 14 9.11114 14.3371C9.32952 14.483 9.51702 14.6705 9.66294 14.8889C10 15.3933 10 16.0955 10 17.5V17.5V17.5C10 18.9045 10 19.6067 9.66294 20.1111C9.51702 20.3295 9.32952 20.517 9.11114 20.6629C8.60669 21 7.90446 21 6.5 21V21V21C5.09554 21 4.39331 21 3.88886 20.6629C3.67048 20.517 3.48298 20.3295 3.33706 20.1111C3 19.6067 3 18.9045 3 17.5V17.5V17.5Z" fill="#323232"/>
+<path opacity="0.1" d="M3 6.5C3 5.09554 3 4.39331 3.33706 3.88886C3.48298 3.67048 3.67048 3.48298 3.88886 3.33706C4.39331 3 5.09554 3 6.5 3V3V3C7.90446 3 8.60669 3 9.11114 3.33706C9.32952 3.48298 9.51702 3.67048 9.66294 3.88886C10 4.39331 10 5.09554 10 6.5V6.5V6.5C10 7.90446 10 8.60669 9.66294 9.11114C9.51702 9.32952 9.32952 9.51702 9.11114 9.66294C8.60669 10 7.90446 10 6.5 10V10V10C5.09554 10 4.39331 10 3.88886 9.66294C3.67048 9.51702 3.48298 9.32952 3.33706 9.11114C3 8.60669 3 7.90446 3 6.5V6.5V6.5Z" fill="#323232"/>
+<path d="M14 17.5C14 16.0955 14 15.3933 14.3371 14.8889C14.483 14.6705 14.6705 14.483 14.8889 14.3371C15.3933 14 16.0955 14 17.5 14V14V14C18.9045 14 19.6067 14 20.1111 14.3371C20.3295 14.483 20.517 14.6705 20.6629 14.8889C21 15.3933 21 16.0955 21 17.5V17.5V17.5C21 18.9045 21 19.6067 20.6629 20.1111C20.517 20.3295 20.3295 20.517 20.1111 20.6629C19.6067 21 18.9045 21 17.5 21V21V21C16.0955 21 15.3933 21 14.8889 20.6629C14.6705 20.517 14.483 20.3295 14.3371 20.1111C14 19.6067 14 18.9045 14 17.5V17.5V17.5Z" stroke="#323232" stroke-width="2"/>
+<path d="M3 17.5C3 16.0955 3 15.3933 3.33706 14.8889C3.48298 14.6705 3.67048 14.483 3.88886 14.3371C4.39331 14 5.09554 14 6.5 14V14V14C7.90446 14 8.60669 14 9.11114 14.3371C9.32952 14.483 9.51702 14.6705 9.66294 14.8889C10 15.3933 10 16.0955 10 17.5V17.5V17.5C10 18.9045 10 19.6067 9.66294 20.1111C9.51702 20.3295 9.32952 20.517 9.11114 20.6629C8.60669 21 7.90446 21 6.5 21V21V21C5.09554 21 4.39331 21 3.88886 20.6629C3.67048 20.517 3.48298 20.3295 3.33706 20.1111C3 19.6067 3 18.9045 3 17.5V17.5V17.5Z" stroke="#323232" stroke-width="2"/>
+<path d="M3 6.5C3 5.09554 3 4.39331 3.33706 3.88886C3.48298 3.67048 3.67048 3.48298 3.88886 3.33706C4.39331 3 5.09554 3 6.5 3V3V3C7.90446 3 8.60669 3 9.11114 3.33706C9.32952 3.48298 9.51702 3.67048 9.66294 3.88886C10 4.39331 10 5.09554 10 6.5V6.5V6.5C10 7.90446 10 8.60669 9.66294 9.11114C9.51702 9.32952 9.32952 9.51702 9.11114 9.66294C8.60669 10 7.90446 10 6.5 10V10V10C5.09554 10 4.39331 10 3.88886 9.66294C3.67048 9.51702 3.48298 9.32952 3.33706 9.11114C3 8.60669 3 7.90446 3 6.5V6.5V6.5Z" stroke="#323232" stroke-width="2"/>
+<path d="M14 6.5H21" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.5 3V10" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  `,
+  camera: `
+    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+      <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+    </svg>
+  `,
+}
 
 // Klick Sound
 const clickSound = new Audio("/sounds/click.mp3")
@@ -136,7 +157,7 @@ function closeModal() {
       <p class="mt-7 text-xl text-neutral-500/80">tech-enthusiast & filmmaker</p>
 
       <nav class="grid place-items-center mt-10 mx-auto max-w-[420px] grid-cols-3 gap-3">
-        <button v-for="item in items" :key="item.key" type="button" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-transform hover:-translate-y-0.5 hover:bg-black/" @click="openModal(item.key)">
+        <button v-for="item in items" :key="item.key" type="button" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-transform hover:-translate-y-0.5 hover:bg-black/5" @click="openModal(item.key)">
           <span class="block w-8 h-8 text-neutral-700" v-html="item.icon"></span>
           <span class="text-xl text-neutral-700">{{ item.label }}</span>
         </button>
@@ -159,7 +180,7 @@ function closeModal() {
       <!-- Text rechts daneben -->
       <div class="grid gap-2 mb-10">
         <p class="text-neutral-700 mt-10">
-          Heyy! I’m Nam, a 23-year-old based in Berlin
+          Heyy! I’m Nam, a 23-year-old guy based in Berlin
           who’s into tech, filmmaking, and photography.
           It's nice to see you here! ^^
         </p>
@@ -291,12 +312,57 @@ function closeModal() {
     <p class="mt-10 text-center text-gray-500">clicking any of the links will open a new tab!</p>
   </ModalWindow>
 
+  <!-- WORK Modal (Hub/Übersicht) -->
+  <ModalWindow
+      title="work"
+      :open="active === 'work'"
+      :initial-x="120"
+      :initial-y="150"
+      @close="closeModal"
+  >
+
+    <!-- 2 Karten: Webapp & Filmmaking -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <!-- Webapp Card -->
+      <button
+          type="button"
+          class="group rounded-xl border border-black/10 p-6 text-center hover:bg-black/5 transition"
+          @click="openModal('webapp')"
+      >
+        <!-- großes Icon -->
+        <span
+            class="mx-auto mt-32 block w-20 h-20 text-neutral-700 transition-transform duration-200 group-hover:scale-110 dark:text-white"
+            v-html="workIcons.app"
+        ></span>
+
+        <!-- Text unter dem Icon -->
+        <p class="mt-3 font-semibold text-lg">app</p>
+      </button>
+
+      <!-- Filmmaking Card -->
+      <button
+          type="button"
+          class="group rounded-xl border border-black/10 p-6 text-center hover:bg-black/5 transition"
+          @click="openModal('film')"
+      >
+        <!-- großes Icon -->
+        <span
+            class="mx-auto mt-36 block w-20 h-20 text-neutral-700 transition-transform duration-200 group-hover:scale-110 dark:text-white"
+            v-html="workIcons.camera"
+        ></span>
+
+        <!-- Text unter dem Icon -->
+        <p class="mt-3 font-semibold text-lg">filmmaking</p>
+      </button>
+    </div>
 
 
-  <!-- WORK Modal -->
-  <ModalWindow title="work" :open="active === 'work'" :initial-x="120" :initial-y="150" @close="closeModal">
-    <!-- leer gelassen -->
   </ModalWindow>
+
+
+
+
+
 </template>
 
 <style scoped>
