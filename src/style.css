@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Alle dark:-Klassen sollen aktiv werden, sobald irgendwo .dark im DOM ist */
+@custom-variant dark (&:where(.dark, .dark *));
+
+
 /* optional, aber sehr sinnvoll: keine unerwarteten Abstände */
 html, body {
     margin: 0;
