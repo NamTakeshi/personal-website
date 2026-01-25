@@ -359,6 +359,140 @@ function closeModal() {
 
   </ModalWindow>
 
+  <!-- WEBAPP Modal -->
+  <ModalWindow
+      title="webapp"
+      :open="active === 'webapp'"
+      :initial-x="-80"
+      :initial-y="80"
+      width="860px"
+      height="520px"
+      @close="closeModal"
+  >
+    <!-- 2 Spalten: links Preview, rechts Infos -->
+    <div class="grid gap-6 md:grid-cols-[360px_1fr] text-neutral-700">
+
+      <!-- LEFT: Preview -->
+      <div class="rounded-xl border border-black/10 overflow-hidden bg-white">
+        <!-- Screenshot in public/images/habittracker.png ablegen -->
+        <img
+            src="/images/bear.ico"
+            alt="HabitTrackerApp preview"
+            class="w-full h-56 object-contain"
+        />
+
+      </div>
+
+      <!-- RIGHT: Text -->
+      <div class="grid gap-4">
+        <!-- Titel + 1 Satz -->
+        <div>
+          <h3 class="text-4xl font-semibold">My Habit Tracker</h3>
+          <p class="text-l text-neutral-700 mt-1">
+            university project for “Webtechnologien” @ HTW Berlin
+          </p>
+        </div>
+
+        <!-- Kurzbeschreibung -->
+        <p class="mt-10 text-xl text-neutral-700">
+          a simple habit tracker my friend and i built with vue.
+          the goal was to build our first webapp and use habits-tracking to reach our goals.
+          (still evolving)
+        </p>
+
+        <!-- Mini-Infos als “Chips” -->
+        <div class="mt-6 flex flex-wrap gap-2 text-md">
+          <span class="px-3 py-1 rounded-full border border-black/10 text-md">java</span>
+          <span class="px-3 py-1 rounded-full border border-black/10 text-md">vue</span>
+          <span class="px-3 py-1 rounded-full border border-black/10 text-md">javascript</span>
+          <span class="px-3 py-1 rounded-full border border-black/10 text-md">tailwind</span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-12 flex flex-wrap gap-3 mt-2">
+          <!-- GitHub -->
+          <a
+              href="https://github.com/NamTakeshi/MyHabitTracker"
+              target="_blank"
+              rel="noreferrer"
+              class="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5
+           border border-black/10 bg-white
+           shadow-sm
+           transition-all duration-200
+           hover:-translate-y-0.5 hover:shadow-md hover:bg-black/5"
+          >
+            <span class="font-medium">GitHub</span>
+            <span class="transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
+          </a>
+
+          <!-- Live Demo -->
+          <span
+              class="inline-flex items-center gap-2 rounded-xl px-5 py-2.5
+           border border-black/10 bg-neutral-100 text-neutral-500
+           cursor-not-allowed"
+          >
+    Live demo (incoming)
+  </span>
+        </div>
+      </div>
+    </div>
+  </ModalWindow>
+
+  <!-- FILMMAKING Modal (schlicht & scrollbar) -->
+  <ModalWindow
+      title="filmmaking"
+      :open="active === 'film'"
+      :initial-x="80"
+      :initial-y="-40"
+      width="900px"
+      height="560px"
+      @close="closeModal"
+  >
+    <!-- Alles untereinander, scrollbar durch das Modal selbst -->
+    <div class="grid gap-10 text-neutral-700">
+
+      <!-- Ocean -->
+      <section class="grid gap-3">
+        <h3 class="text-xl font-semibold">Ocean</h3>
+        <p class="text-sm text-neutral-600">Calm visuals</p>
+
+        <div class="grid grid-cols-1 gap-3">
+          <video src="/videos/oceanvid.MOV" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
+          <img src="/images/ocean1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+          <img src="/images/ocean2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+        </div>
+      </section>
+
+      <!-- New York -->
+      <section class="grid gap-3">
+        <h3 class="text-xl font-semibold">New York</h3>
+        <p class="text-sm text-neutral-600">City energy</p>
+
+        <div class="grid grid-cols-1 gap-3">
+          <video src="/videos/nyvid.MP4" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
+          <img src="/images/ny1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+          <img src="/images/ny2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+          <img src="/images/ny3.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+        </div>
+      </section>
+
+      <!-- Vietnam -->
+      <section class="grid gap-3">
+        <h3 class="text-xl font-semibold">Vietnam</h3>
+        <p class="text-sm text-neutral-600">Travel story</p>
+
+        <div class="grid grid-cols-1 gap-3">
+          <video src="/videos/Vietnam2.mp4" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
+          <img src="/images/vn1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+          <img src="/images/vn2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+        </div>
+      </section>
+
+    </div>
+  </ModalWindow>
+
+
+
 
 
 
