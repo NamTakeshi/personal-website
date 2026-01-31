@@ -144,7 +144,7 @@ function closeModal() {
 
     <div class="px-6 py-14 text-center">
       <h1 class="text-[clamp(42px,6vw,64px)] leading-[1.05] font-normal text-neutral-500">
-        hey! <span class="font-semibold text-blue-300">i'm nam</span>
+        hey! <span class="font-semibold text-blue-300">i'm nam :)</span>
       </h1>
 
       <p class="mt-7 text-xl text-neutral-500/80">tech-enthusiast & filmmaker</p>
