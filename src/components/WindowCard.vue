@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue"
 import ModalWindow from "./ModalWindow.vue"
+import AskNamChat from "./AskNamChat.vue";
 
 // Test
 // active hält den Schlüssel des aktuell offenen Modals:
@@ -41,7 +42,19 @@ const items = [
         <path d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     `,
-  }
+  },
+  {
+    label: "ask",
+    key: "ask",
+    icon: `
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M9.5 9.5a2.5 2.5 0 1 1 4.1 2c-.6.5-1.1 1-1.1 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    `,
+  },
+
 ]
 
 const workIcons = {
@@ -312,6 +325,16 @@ function closeModal() {
     <p class="mt-10 text-center text-gray-500">clicking any of the links will open a new tab!</p>
   </ModalWindow>
 
+  <ModalWindow
+      title="ask nam"
+      :open="active === 'ask'"
+      width="min(900px, 94vw)"
+      height="min(620px, 86vh)"
+      @close="closeModal"
+  >
+    <AskNamChat />
+  </ModalWindow>
+
   <!-- WORK Modal (Hub/Übersicht) -->
   <ModalWindow
       title="work"
@@ -496,8 +519,6 @@ function closeModal() {
 
     </div>
   </ModalWindow>
-
-
 
 
 
