@@ -11,6 +11,7 @@ const props = defineProps({
 
   width: { type: String, default: "760px" },
   height: { type: String, default: "520px" },
+  modalBg: { type: String, default: "bg-white" },
 })
 
 const emit = defineEmits(["close"])
@@ -137,7 +138,8 @@ function onPointerUp(e) {
     <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30" @click="onBackdropClick">
       <div
           ref="modalRef"
-          class="relative overflow-hidden w-[760px] max-w-[92vw] h-[520px] rounded-xl border-2 border-black/30 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)] max-sm:h-[560px]"
+          class="relative overflow-hidden w-[760px] max-w-[92vw] h-[520px] rounded-xl border-2 shadow-[0_18px_40px_rgba(0,0,0,0.12)] max-sm:h-[560px]"
+          :class="[props.modalBg === 'bg-white' ? 'border-black/30' : 'border-white/10', props.modalBg]"
           :style="{
     width: props.width,
     height: props.height,
@@ -176,13 +178,15 @@ function onPointerUp(e) {
             class="overflow-y-auto text-left"
             :style="{ height: `calc(${props.height} - 44px)` }"
         >
-          <div class="h-full min-h-0 p-6 flex flex-col">
+          <div class="h-full min-h-0 p-6 flex flex-col"
+               :class="props.modalBg !== 'bg-white' ? 'text-white' : 'text-neutral-700'"
+          >
             <slot />
           </div>
-        </div>
 
 
       </div>
+    </div>
     </div>
   </teleport>
 </template>

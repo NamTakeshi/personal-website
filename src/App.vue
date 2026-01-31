@@ -97,6 +97,7 @@ onMounted(() => {
       :open="chatOpen"
       width="min(780px, 92vw)"
       height="min(520px, 80vh)"
+      modal-bg="bg-white dark:bg-transparent backdrop-blur-xl"
       @close="() => { playClick();chatOpen = false}"
   >
     <AskNamChat />

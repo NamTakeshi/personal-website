@@ -75,7 +75,7 @@ async function send() {
 <template>
   <div class="flex h-full min-h-0 flex-col">
     <!-- scrollbarer Bereich -->
-    <div class="flex-1 min-h-0 overflow-y-auto rounded-xl border border-black/10 bg-white p-4 pb-4 text-left">
+    <div class="flex-1 min-h-0 overflow-y-auto rounded-xl border border-black/10 bg-white dark:bg-transparent p-4 pb-4 text-left">
       <div v-for="(m, idx) in messages" :key="idx" class="mb-3">
         <div class="text-xs text-neutral-500 mb-1">
           {{ m.role === "user" ? "You" : "Assistant" }}
@@ -84,8 +84,8 @@ async function send() {
         <div
             class="inline-block rounded-xl px-3 py-2"
             :class="m.role === 'user'
-            ? 'bg-black/5 text-neutral-900'
-            : 'bg-white text-neutral-800 border border-black/10'"
+  ? 'bg-black/5 text-neutral-900 dark:bg-white/10 dark:text-neutral-100'
+  : 'bg-white/70 text-neutral-800 border border-black/10 dark:bg-white/5 dark:text-neutral-100 dark:border-white/10'"
         >
           <div class="whitespace-pre-line">
             {{ m.content }}
@@ -104,12 +104,12 @@ async function send() {
     <form class="pt-3 flex gap-2 shrink-0" @submit.prevent="send">
       <input
           v-model="input"
-          class="flex-1 rounded-xl border border-black/10 bg-white px-3 py-2"
+          class="flex-1 rounded-xl text-neutral-900 dark:text-neutral-100 border border-black/10 bg-white dark:bg-transparent dark:border-neutral-700 px-3 py-2"
           placeholder="Ask me anything…"
       />
       <button
           type="submit"
-          class="rounded-xl border border-black/10 bg-neutral-900 px-4 py-2 text-white hover:bg-neutral-800 disabled:opacity-60"
+          class="rounded-xl border border-black/10 bg-neutral-700 px-4 py-2 text-white hover:bg-neutral-800 disabled:opacity-60"
           :disabled="loading"
       >
         Send

@@ -2,14 +2,17 @@
 import { ref } from "vue"
 import ModalWindow from "./ModalWindow.vue"
 import AskNamChat from "./AskNamChat.vue";
+import { computed } from "vue"
+
 
 // Test
 // active hält den Schlüssel des aktuell offenen Modals:
 // mögliche Werte: "about", "links", "work", webapp oder film (kein Modal offen)
 const active = ref(null)
 
-// Die Navigationselemente (label/key/icon). Einfach erweiterbar.
-// Wir rendern das SVG per v-html im Template.
+const isDark = computed(() => document.documentElement.classList.contains("dark"))
+
+
 const items = [
   {
     label: "about",
@@ -138,7 +141,7 @@ function closeModal() {
 </script>
 
 <template>
-  <div class="overflow-hidden w-[760px] max-w-[92vw] rounded-xl border-2 border-black/30 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)]">
+  <div class="overflow-hidden w-[760px] max-w-[92vw] rounded-xl border-2 border-black/30 shadow-[0_18px_40px_rgba(0,0,0,0.12)]">
     <!-- Kopfzeile: leer gelassen (kein "home" mehr) -->
     <div class="flex items-center h-11 px-4 text-base tracking-wide text-white bg-neutral-600">home</div>
 
@@ -159,7 +162,7 @@ function closeModal() {
   </div>
 
   <!-- ABOUT Modal: Inhalt ergänzt -->
-  <ModalWindow title="about" :open="active === 'about'" @close="closeModal">
+  <ModalWindow title="about" :open="active === 'about'" modal-bg="bg-white dark:bg-transparent backdrop-blur-xl" @close="closeModal">
 
     <div class="flex items-start gap-4">
       <!-- Profilbild links -->
@@ -172,7 +175,7 @@ function closeModal() {
 
       <!-- Text rechts daneben -->
       <div class="grid gap-2 mb-10">
-        <p class="text-neutral-700 mt-10">
+        <p class="text-neutral-700 dark:text-white mt-10">
           Heyy! I’m Nam, a 23-year-old guy based in Berlin
           who’s into tech, filmmaking, and photography.
           It's nice to see you here! ^^
@@ -180,33 +183,33 @@ function closeModal() {
       </div>
     </div>
 
-    <div class="grid gap-1 mb-5">
-      <p class="font-semibold">EDUCATION:</p>
-      <p>Bachelor of Science in Business Informatics</p>
-      <p class="text-sm text-neutral-600">2024–2027, HTW Berlin</p>
+    <div class="grid gap-1 mb-10">
+      <p class="font-semibold text-neutral-700 dark:text-white">EDUCATION:</p>
+      <p class="text-neutral-700 dark:text-white">Bachelor of Science in Business Informatics</p>
+      <p class="text-sm text-neutral-600 dark:text-white">2024–2027, HTW Berlin</p>
     </div>
 
-    <div class="grid gap-1 mb-5">
-      <p class="font-semibold">TECH STACK:</p>
-      <ul class="list-disc pl-5 text-neutral-700">
+    <div class="grid gap-1 mb-10">
+      <p class="font-semibold text-neutral-700 dark:text-white">TECH STACK:</p>
+      <ul class="list-disc pl-5 text-neutral-700 dark:text-white">
         <li>java, javascript, html/css & vue.js</li>
         <li>sql & r</li>
       </ul>
     </div>
 
-    <div class="grid gap-1 mb-5">
-      <p class="font-semibold">MY CAMERAS:</p>
-      <ul class="list-disc pl-5 text-neutral-700">
+    <div class="grid gap-1 mb-10">
+      <p class="font-semibold text-neutral-700 dark:text-white">MY CAMERAS:</p>
+      <ul class="list-disc pl-5 text-neutral-700 dark:text-white">
         <li>sony a7 iv</li>
         <li>soon iphone 17 pro :)</li>
       </ul>
     </div>
 
     <div class="grid gap-4">
-      <h3 class="text-lg font-semibold">FAQ:</h3>
+      <h3 class="text-lg font-semibold text-neutral-700 dark:text-white">FAQ:</h3>
 
       <!-- FAQ Item 1 -->
-      <div class="rounded-lg border border-black/10 text-neutral-700">
+      <div class="rounded-lg border border-black/10 dark:border-neutral-700 text-neutral-700 dark:text-white">
         <button
             class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
             @click="toggleFaq(0)"
@@ -215,7 +218,7 @@ function closeModal() {
           <span class="text-neutral-400">{{ openFaq === 0 ? "–" : "+" }}</span>
         </button>
 
-        <div v-if="openFaq === 0" class="px-4 pb-4 text-neutral-700">
+        <div v-if="openFaq === 0" class="px-4 pb-4 text-neutral-700 dark:text-white">
           → I was looking for a field of study and chose business and tech because it lets
           me build cool apps and websites like this one, while staying relevant in a world
           shaped by new technologies.
@@ -223,7 +226,7 @@ function closeModal() {
       </div>
 
       <!-- FAQ Item 2 -->
-      <div class="rounded-lg border border-black/10 text-neutral-700">
+      <div class="rounded-lg border border-black/10 dark:border-neutral-700 text-neutral-700 dark:text-white">
         <button
             class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
             @click="toggleFaq(1)"
@@ -232,7 +235,7 @@ function closeModal() {
           <span class="text-neutral-400">{{ openFaq === 1 ? "–" : "+" }}</span>
         </button>
 
-        <div v-if="openFaq === 1" class="px-4 pb-4 text-neutral-700">
+        <div v-if="openFaq === 1" class="px-4 pb-4 text-neutral-700 dark:text-white">
           → I once rented a digital camera to take photos for friends and to record my
           self-development journey. Since then, I’ve loved creating visuals and eventually
           bought a professional camera.
@@ -240,7 +243,7 @@ function closeModal() {
       </div>
 
       <!-- FAQ Item 3 -->
-      <div class="rounded-lg border border-black/10 text-neutral-700">
+      <div class="mb-10 rounded-lg border border-black/10 dark:border-neutral-700 text-neutral-700 dark:text-white">
         <button
             class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
             @click="toggleFaq(2)"
@@ -249,7 +252,7 @@ function closeModal() {
           <span class="text-neutral-400">{{ openFaq === 2 ? "–" : "+" }}</span>
         </button>
 
-        <div v-if="openFaq === 2" class="px-4 pb-4 text-neutral-700">
+        <div v-if="openFaq === 2" class="px-4 pb-4 text-neutral-700 dark:text-white">
           <p>→ In my free time, I like to:</p>
           <ul class="list-disc pl-5 mt-1">
             <li>go swimming or running</li>
@@ -265,7 +268,7 @@ function closeModal() {
   </ModalWindow>
 
   <!-- LINKS Modal -->
-  <ModalWindow title="links" :open="active === 'links'" width="520px" height="300px" @close="closeModal">
+  <ModalWindow title="links" :open="active === 'links'" width="520px" height="300px" modal-bg="bg-white dark:bg-transparent backdrop-blur-xl" @close="closeModal">
     <ul class="flex justify-center gap-15 mt-10">
       <!-- GitHub -->
       <li>
@@ -310,6 +313,7 @@ function closeModal() {
       title="work"
       :open="active === 'work'"
       width="520px" height="300px"
+      modal-bg="bg-white dark:bg-transparent backdrop-blur-xl"
       @close="closeModal"
   >
 
@@ -328,7 +332,7 @@ function closeModal() {
         ></span>
 
         <!-- Text unter dem Icon -->
-        <p class="mt-3 font-semibold text-lg">developement</p>
+        <p class="mt-3 font-semibold text-lg text-neutral-700">developement</p>
       </button>
 
       <!-- Filmmaking Card -->
@@ -344,7 +348,7 @@ function closeModal() {
         ></span>
 
         <!-- Text unter dem Icon -->
-        <p class="mt-3 font-semibold text-lg">filmmaking</p>
+        <p class="mt-3 font-semibold text-lg text-neutral-700"">filmmaking</p>
       </button>
     </div>
 
@@ -357,13 +361,14 @@ function closeModal() {
       :open="active === 'webapp'"
       width="860px"
       height="520px"
+      modal-bg="bg-white dark:bg-transparent backdrop-blur-xl"
       @close="closeModal"
   >
     <!-- 2 Spalten: links Preview, rechts Infos -->
     <div class="grid gap-6 md:grid-cols-[360px_1fr] text-neutral-700">
 
       <!-- LEFT: Preview -->
-      <div class="rounded-xl overflow-hidden bg-white">
+      <div class="rounded-xl overflow-hidden">
         <!-- Screenshot in public/images/habittracker.png ablegen -->
         <img
             src="/images/bear.ico"
@@ -377,25 +382,25 @@ function closeModal() {
       <div class="grid gap-4">
         <!-- Titel + 1 Satz -->
         <div>
-          <h3 class="text-4xl font-semibold">My Habit Tracker</h3>
-          <p class="text-l text-neutral-700 mt-1">
+          <h3 class="text-4xl font-semibold text-neutral-700 dark:text-white">My Habit Tracker</h3>
+          <p class="text-l text-neutral-700 dark:text-white mt-1">
             university project for “Webtechnologien” @ HTW Berlin
           </p>
         </div>
 
         <!-- Kurzbeschreibung -->
-        <p class="mt-2 text-md text-neutral-700">
+        <p class="mt-2 text-md text-neutral-700 dark:text-white">
           a simple habit tracker my friend and i built with vue.
           the goal was to build our first webapp and use habits-tracking to reach our goals.
           (still evolving)
         </p>
 
         <!-- Mini-Infos als “Chips” -->
-        <div class="mt-2 flex flex-wrap gap-2 text-md">
-          <span class="px-3 py-1 rounded-full border border-black/10 text-md">java</span>
-          <span class="px-3 py-1 rounded-full border border-black/10 text-md">vue</span>
-          <span class="px-3 py-1 rounded-full border border-black/10 text-md">javascript</span>
-          <span class="px-3 py-1 rounded-full border border-black/10 text-md">tailwind</span>
+        <div class="mt-2 flex flex-wrap gap-2 text-md text-neutral-700 dark:text-white">
+          <span class="px-3 py-1 rounded-full border border-black/10 dark:border-white text-md">java</span>
+          <span class="px-3 py-1 rounded-full border border-black/10  dark:border-white text-md">vue</span>
+          <span class="px-3 py-1 rounded-full border border-black/10  dark:border-white text-md">javascript</span>
+          <span class="px-3 py-1 rounded-full border border-black/10  dark:border-white text-md">tailwind</span>
         </div>
 
         <!-- Buttons -->
@@ -406,19 +411,19 @@ function closeModal() {
               target="_blank"
               rel="noreferrer"
               class="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5
-           border border-black/10 bg-white
+           border border-black/10 bg-white dark:bg-transparent backdrop-blur-xl dark:border-neutral-700
            shadow-sm
            transition-all duration-200
            hover:-translate-y-0.5 hover:shadow-md hover:bg-black/5"
           >
-            <span class="font-medium">GitHub</span>
+            <span class="font-medium text-neutral-500">GitHub</span>
             <span class="transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
           </a>
 
           <!-- Live Demo -->
           <span
               class="inline-flex items-center gap-2 rounded-xl px-5 py-2.5
-           border border-black/10 bg-neutral-100 text-neutral-500
+           border border-black/10 bg-neutral-100 text-neutral-500 dark:bg-transparent backdrop-blur-xl dark:border-neutral-700
            cursor-not-allowed"
           >
     Live demo (incoming)
@@ -434,22 +439,23 @@ function closeModal() {
       :open="active === 'film'"
       width="min(1100px, 94vw)"
       height="min(680px, 86vh)"
+      modal-bg="bg-white dark:bg-transparent backdrop-blur-xl"
       @close="closeModal"
   >
     <!-- Alles untereinander, scrollbar durch das Modal selbst -->
-    <div class="grid gap-10 text-neutral-700">
+    <div class="grid gap-10 text-neutral-700 dark:text-neutral-200">
 
       <!-- New York -->
       <section class="grid gap-3">
-        <h3 class="mt-10 text-6xl font-bold text-center text-black">New York</h3>
-        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-black/100 to-transparent mb-4"></div>
+        <h3 class="mt-10 text-6xl font-bold text-center ">New York</h3>
+        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-neutral-50 to-transparent mb-4"></div>
 
 
         <div class="grid grid-cols-1 gap-3">
-          <video src="/videos/nyvid.MP4" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
-          <img src="/images/ny1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
-          <img src="/images/ny2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
-          <img src="/images/ny3.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+          <video src="/videos/nyvid.MP4" controls class="rounded-lg w-full aspect-video object-cover"></video>
+          <img src="/images/ny1.jpg" class="rounded-lg w-full aspect-video object-cover"/>
+          <img src="/images/ny2.jpg" class="rounded-lg w-full aspect-video object-cover"/>
+          <img src="/images/ny3.jpg" class="rounded-lg w-full aspect-video object-cover"/>
         </div>
 
 
@@ -459,13 +465,13 @@ function closeModal() {
 
       <!-- Vietnam -->
       <section class="grid gap-3">
-        <h3 class="text-6xl font-bold text-center text-black">Vietnam</h3>
-        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-black/100 to-transparent mb-4"></div>
+        <h3 class="text-6xl font-bold text-center">Vietnam</h3>
+        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-neutral-50 to-transparent mb-4"></div>
 
         <div class="grid grid-cols-1 gap-3">
-          <video src="/videos/Vietnam2.mp4" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
-          <img src="/images/vn1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
-          <img src="/images/vn2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+          <video src="/videos/Vietnam2.mp4" controls class="rounded-lg w-full aspect-video object-cover"></video>
+          <img src="/images/vn1.jpg" class="rounded-lg w-full aspect-video object-cover"/>
+          <img src="/images/vn2.jpg" class="rounded-lg w-full aspect-video object-cover"/>
         </div>
 
         <br><br>
@@ -474,13 +480,13 @@ function closeModal() {
 
       <!-- Ocean -->
       <section class="grid gap-3">
-        <h3 class="text-6xl font-bold text-center text-black">Ocean</h3>
-        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-black/100 to-transparent mb-4"></div>
+        <h3 class="text-6xl font-bold text-center">Ocean</h3>
+        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-neutral-50 to-transparent mb-4"></div>
 
         <div class="grid grid-cols-1 gap-3">
-          <video src="/videos/oceanvid.MOV" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
-          <img src="/images/ocean1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
-          <img src="/images/ocean2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+          <video src="/videos/oceanvid.MOV" controls class="rounded-lg w-full aspect-video object-cover"></video>
+          <img src="/images/ocean1.jpg" class="rounded-lg w-full aspect-video object-cover"/>
+          <img src="/images/ocean2.jpg" class="rounded-lg w-full aspect-video object-cover"/>
         </div>
       </section>
 
@@ -497,14 +503,14 @@ function closeModal() {
 .social-btn {
   width: 100px;
   height:100px;
-  background: #fff;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-  border: 2px solid #fff;
+  border: 2px solid rgba(0, 0, 0, 0.18);
   text-decoration: none;
 }
 
