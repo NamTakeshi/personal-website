@@ -148,7 +148,7 @@ function closeModal() {
 <template>
   <div class="overflow-hidden w-[760px] max-w-[92vw] rounded-xl border-2 border-black/30 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)]">
     <!-- Kopfzeile: leer gelassen (kein "home" mehr) -->
-    <div class="flex items-center h-11 px-4 text-base tracking-wide text-white bg-neutral-800">home</div>
+    <div class="flex items-center h-11 px-4 text-base tracking-wide text-white bg-neutral-600">home</div>
 
     <div class="px-6 py-14 text-center">
       <h1 class="text-[clamp(42px,6vw,64px)] leading-[1.05] font-normal text-neutral-500">
@@ -167,7 +167,7 @@ function closeModal() {
   </div>
 
   <!-- ABOUT Modal: Inhalt ergänzt -->
-  <ModalWindow title="about" :open="active === 'about'" :initial-x="-120" :initial-y="150" @close="closeModal">
+  <ModalWindow title="about" :open="active === 'about'" @close="closeModal">
 
     <div class="flex items-start gap-4">
       <!-- Profilbild links -->
@@ -273,7 +273,7 @@ function closeModal() {
   </ModalWindow>
 
   <!-- LINKS Modal -->
-  <ModalWindow title="links" :open="active === 'links'" :initial-x="120" :initial-y="-150" width="520px" height="300px" @close="closeModal">
+  <ModalWindow title="links" :open="active === 'links'" width="520px" height="300px" @close="closeModal">
     <ul class="flex justify-center gap-15 mt-10">
       <!-- GitHub -->
       <li>
@@ -317,8 +317,7 @@ function closeModal() {
   <ModalWindow
       title="work"
       :open="active === 'work'"
-      :initial-x="120"
-      :initial-y="150"
+      width="520px" height="300px"
       @close="closeModal"
   >
 
@@ -327,12 +326,12 @@ function closeModal() {
       <!-- Webapp Card -->
       <button
           type="button"
-          class="group rounded-xl p-6 text-center transition"
+          class="group rounded-xl mt-6 p-6 text-center transition"
           @click="openModal('webapp')"
       >
         <!-- großes Icon -->
         <span
-            class="mx-auto mt-32 block w-20 h-20 text-neutral-700 transition-transform duration-200 group-hover:scale-110 dark:text-white"
+            class="mx-auto block w-20 h-20 text-neutral-700 transition-transform duration-200 group-hover:scale-110 dark:text-white"
             v-html="workIcons.app"
         ></span>
 
@@ -343,12 +342,12 @@ function closeModal() {
       <!-- Filmmaking Card -->
       <button
           type="button"
-          class="group rounded-xl p-6 text-center"
+          class="group rounded-xl mt-6 p-6 text-center"
           @click="openModal('film')"
       >
         <!-- großes Icon -->
         <span
-            class="mx-auto mt-36 block w-20 h-20 text-neutral-700 transition-transform duration-200 group-hover:scale-110 dark:text-white"
+            class="mx-auto block w-20 h-20 text-neutral-700 transition-transform duration-200 group-hover:scale-110 dark:text-white"
             v-html="workIcons.camera"
         ></span>
 
@@ -364,8 +363,6 @@ function closeModal() {
   <ModalWindow
       title="developement"
       :open="active === 'webapp'"
-      :initial-x="-80"
-      :initial-y="80"
       width="860px"
       height="520px"
       @close="closeModal"
@@ -395,7 +392,7 @@ function closeModal() {
         </div>
 
         <!-- Kurzbeschreibung -->
-        <p class="mt-2 text-xl text-neutral-700">
+        <p class="mt-2 text-md text-neutral-700">
           a simple habit tracker my friend and i built with vue.
           the goal was to build our first webapp and use habits-tracking to reach our goals.
           (still evolving)
@@ -410,7 +407,7 @@ function closeModal() {
         </div>
 
         <!-- Buttons -->
-        <div class="mt-12 flex flex-wrap gap-3 mt-2">
+        <div class="mt-32 flex flex-wrap gap-3">
           <!-- GitHub -->
           <a
               href="https://github.com/NamTakeshi/MyHabitTracker"

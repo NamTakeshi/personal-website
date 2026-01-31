@@ -151,7 +151,9 @@ function onPointerUp(e) {
       <!-- Header ist das Drag-Handle. -->
         <div
           ref="headerRef"
-          class="flex items-center justify-between h-11 px-4 text-base tracking-wide text-white bg-neutral-800"
+          class="flex items-center justify-between h-11 px-4 text-base tracking-wide
+       bg-neutral-600 text-white
+       border-b border-white/10"
           @pointerdown.stop.prevent="onPointerDown"
           :style="{ cursor: dragging ? 'grabbing' : 'grab' }"
         >
@@ -184,4 +186,8 @@ function onPointerUp(e) {
     </div>
   </teleport>
 </template>
+
+<style>
+
+</style>
 
