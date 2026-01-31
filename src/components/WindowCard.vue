@@ -171,7 +171,7 @@ function closeModal() {
     <div class="flex items-start gap-4">
       <!-- Profilbild links -->
       <img
-          src="/images/me.png"
+          src="/images/profil6 2.JPG"
           alt="Nam"
           class="w-24 h-24 rounded-full object-cover border border-black/10 shrink-0
                 transition-transform duration-400 ease-in-out hover:scale-130"
@@ -326,7 +326,7 @@ function closeModal() {
       <!-- Webapp Card -->
       <button
           type="button"
-          class="group rounded-xl border border-black/10 p-6 text-center hover:bg-black/5 transition"
+          class="group rounded-xl p-6 text-center transition"
           @click="openModal('webapp')"
       >
         <!-- großes Icon -->
@@ -336,13 +336,13 @@ function closeModal() {
         ></span>
 
         <!-- Text unter dem Icon -->
-        <p class="mt-3 font-semibold text-lg">app</p>
+        <p class="mt-3 font-semibold text-lg">developement</p>
       </button>
 
       <!-- Filmmaking Card -->
       <button
           type="button"
-          class="group rounded-xl border border-black/10 p-6 text-center hover:bg-black/5 transition"
+          class="group rounded-xl p-6 text-center"
           @click="openModal('film')"
       >
         <!-- großes Icon -->
@@ -361,7 +361,7 @@ function closeModal() {
 
   <!-- WEBAPP Modal -->
   <ModalWindow
-      title="webapp"
+      title="developement"
       :open="active === 'webapp'"
       :initial-x="-80"
       :initial-y="80"
@@ -373,12 +373,12 @@ function closeModal() {
     <div class="grid gap-6 md:grid-cols-[360px_1fr] text-neutral-700">
 
       <!-- LEFT: Preview -->
-      <div class="rounded-xl border border-black/10 overflow-hidden bg-white">
+      <div class="rounded-xl overflow-hidden bg-white">
         <!-- Screenshot in public/images/habittracker.png ablegen -->
         <img
             src="/images/bear.ico"
             alt="HabitTrackerApp preview"
-            class="w-full h-56 object-contain"
+            class="w-full h-70 mt-10 object-contain"
         />
 
       </div>
@@ -394,14 +394,14 @@ function closeModal() {
         </div>
 
         <!-- Kurzbeschreibung -->
-        <p class="mt-10 text-xl text-neutral-700">
+        <p class="mt-2 text-xl text-neutral-700">
           a simple habit tracker my friend and i built with vue.
           the goal was to build our first webapp and use habits-tracking to reach our goals.
           (still evolving)
         </p>
 
         <!-- Mini-Infos als “Chips” -->
-        <div class="mt-6 flex flex-wrap gap-2 text-md">
+        <div class="mt-2 flex flex-wrap gap-2 text-md">
           <span class="px-3 py-1 rounded-full border border-black/10 text-md">java</span>
           <span class="px-3 py-1 rounded-full border border-black/10 text-md">vue</span>
           <span class="px-3 py-1 rounded-full border border-black/10 text-md">javascript</span>
@@ -442,31 +442,18 @@ function closeModal() {
   <ModalWindow
       title="filmmaking"
       :open="active === 'film'"
-      :initial-x="80"
-      :initial-y="-40"
-      width="900px"
-      height="560px"
+      width="min(1100px, 94vw)"
+      height="min(680px, 86vh)"
       @close="closeModal"
   >
     <!-- Alles untereinander, scrollbar durch das Modal selbst -->
     <div class="grid gap-10 text-neutral-700">
 
-      <!-- Ocean -->
-      <section class="grid gap-3">
-        <h3 class="text-xl font-semibold">Ocean</h3>
-        <p class="text-sm text-neutral-600">Calm visuals</p>
-
-        <div class="grid grid-cols-1 gap-3">
-          <video src="/videos/oceanvid.MOV" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
-          <img src="/images/ocean1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
-          <img src="/images/ocean2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
-        </div>
-      </section>
-
       <!-- New York -->
       <section class="grid gap-3">
-        <h3 class="text-xl font-semibold">New York</h3>
-        <p class="text-sm text-neutral-600">City energy</p>
+        <h3 class="mt-10 text-6xl font-bold text-center text-black">New York</h3>
+        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-black/100 to-transparent mb-4"></div>
+
 
         <div class="grid grid-cols-1 gap-3">
           <video src="/videos/nyvid.MP4" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
@@ -474,17 +461,36 @@ function closeModal() {
           <img src="/images/ny2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
           <img src="/images/ny3.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
         </div>
+
+
+        <br><br>
+
       </section>
 
       <!-- Vietnam -->
       <section class="grid gap-3">
-        <h3 class="text-xl font-semibold">Vietnam</h3>
-        <p class="text-sm text-neutral-600">Travel story</p>
+        <h3 class="text-6xl font-bold text-center text-black">Vietnam</h3>
+        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-black/100 to-transparent mb-4"></div>
 
         <div class="grid grid-cols-1 gap-3">
           <video src="/videos/Vietnam2.mp4" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
           <img src="/images/vn1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
           <img src="/images/vn2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+        </div>
+
+        <br><br>
+      </section>
+
+
+      <!-- Ocean -->
+      <section class="grid gap-3">
+        <h3 class="text-6xl font-bold text-center text-black">Ocean</h3>
+        <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-black/100 to-transparent mb-4"></div>
+
+        <div class="grid grid-cols-1 gap-3">
+          <video src="/videos/oceanvid.MOV" controls class="rounded-lg w-full aspect-video object-contain bg-black/5"></video>
+          <img src="/images/ocean1.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
+          <img src="/images/ocean2.jpg" class="rounded-lg w-full aspect-video object-contain bg-black/5"/>
         </div>
       </section>
 

@@ -170,9 +170,15 @@ function onPointerUp(e) {
         </div>
 
         <!-- Inhalt (Slot) -->
-        <div class="h-[calc(520px-44px)] overflow-y-auto p-6 text-left">
-          <slot />
+        <div
+            class="overflow-y-auto text-left"
+            :style="{ height: `calc(${props.height} - 44px)` }"
+        >
+          <div class="min-h-full p-6">
+            <slot />
+          </div>
         </div>
+
 
       </div>
     </div>
