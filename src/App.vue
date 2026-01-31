@@ -28,6 +28,8 @@ const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fi
       d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
 </svg>`;
 
+const musicIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0625" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-disc3-icon lucide-disc-3"><circle cx="12" cy="12" r="10"/><path d="M6 12c0-1.7.7-3.2 1.8-4.2"/><circle cx="12" cy="12" r="2"/><path d="M18 12c0 1.7-.7 3.2-1.8 4.2"/></svg>`;
+
 onMounted(() => {
   initTheme()
 })
@@ -48,7 +50,7 @@ onMounted(() => {
   <div class="fixed left-6 top-6 z-50 flex gap-3">
     <!-- Theme Toggle -->
     <button
-        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600 transition-all duration-400 ease-out hover:scale-[1.03] active:scale-[0.97]
+        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600 transition-all duration-300 ease-out hover:scale-[1.10] active:scale-[0.97]
 "
         @click="toggleTheme"
         aria-label="Toggle theme"
@@ -63,7 +65,7 @@ onMounted(() => {
 
     <!-- Chat Button -->
     <button
-        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600"
+        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600 transition-all duration-300 ease-out hover:scale-[1.10] active:scale-[0.97]"
         @click="chatOpen = true"
         aria-label="Open chat"
         title="Chat"
