@@ -1,6 +1,6 @@
 <template>
   <button
-      class="fixed left-25 top-2 z-50 w-10 h-20 flex items-center justify-center transition-transform hover:-translate-y-1"
+      class="fixed left-38 top-2 z-50 w-10 h-20 flex items-center justify-center transition-transform hover:-translate-y-1"
       :aria-pressed="playing"
       @click="toggle"
       title="Musik an/aus"

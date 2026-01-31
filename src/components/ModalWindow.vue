@@ -174,7 +174,7 @@ function onPointerUp(e) {
             class="overflow-y-auto text-left"
             :style="{ height: `calc(${props.height} - 44px)` }"
         >
-          <div class="min-h-full p-6">
+          <div class="h-full min-h-0 p-6 flex flex-col">
             <slot />
           </div>
         </div>
