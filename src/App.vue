@@ -15,12 +15,18 @@ const { initTheme, toggleTheme } = useTheme()
 const chatOpen = ref(false);
 
 const chatIcon = `
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <path d="M9.5 9.5a2.5 2.5 0 1 1 4.1 2c-.6.5-1.1 1-1.1 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/>
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0625" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-icon lucide-bot"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
 `;
+
+const sunIcon =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0625" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+
+const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.0625" stroke-linecap="round" stroke-linejoin="round"
+                      className="lucide lucide-moon-icon lucide-moon">
+  <path
+      d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+</svg>`;
 
 onMounted(() => {
   initTheme()
@@ -30,35 +36,39 @@ onMounted(() => {
 <template>
   <!-- Light -->
   <div class="block dark:hidden">
-    <BackgroundWave />
+    <BackgroundWave/>
   </div>
 
   <!-- Dark -->
   <div class="hidden dark:block">
-    <BackgroundShootingStars />
+    <BackgroundShootingStars/>
   </div>
 
   <!-- Floating Buttons oben links -->
   <div class="fixed left-6 top-6 z-50 flex gap-3">
     <!-- Theme Toggle -->
     <button
-        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-gray-950 backdrop-blur dark:border-white/10 dark:bg-black/40"
+        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600 transition-all duration-400 ease-out hover:scale-[1.03] active:scale-[0.97]
+"
         @click="toggleTheme"
         aria-label="Toggle theme"
         title="Toggle theme"
     >
-      <span class="dark:hidden">🌙</span>
-      <span class="hidden dark:inline">☀️</span>
+      <!-- Light Mode sichtbar: Moon (wechseln zu dark) -->
+      <span class="w-6 h-6 text-white dark:hidden" v-html="moonIcon"></span>
+
+      <!-- Dark Mode sichtbar: Sun (wechseln zu light) -->
+      <span class="w-6 h-6 text-white hidden dark:inline" v-html="sunIcon"></span>
     </button>
 
     <!-- Chat Button -->
     <button
-        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-white/80 backdrop-blur hover:bg-white dark:border-white/10 dark:bg-black/40 dark:hover:bg-black/60"
+        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600"
         @click="chatOpen = true"
         aria-label="Open chat"
         title="Chat"
     >
-      <span class="w-6 h-6 text-neutral-900 dark:text-white" v-html="chatIcon"></span>
+      <span class="w-6 h-6 text-neutral-900 dark:text-white text-white" v-html="chatIcon"></span>
     </button>
   </div>
 
