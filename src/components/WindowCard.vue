@@ -184,7 +184,7 @@ function closeModal() {
 
       <!-- Text rechts daneben -->
       <div class="grid gap-2 mb-10">
-        <p class="text-neutral-700 dark:text-white mt-10">
+        <p class="text-neutral-700 dark:text-white mt-0 sm:mt-6 mb-5">
           Heyy! I’m Nam, a 23-year-old guy based in Berlin
           who’s into tech, filmmaking, and photography.
           It's nice to see you here! ^^
@@ -327,7 +327,7 @@ function closeModal() {
   >
 
     <!-- 2 Karten: Webapp & Filmmaking -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+    <div class="grid grid-cols-2 gap-2">
       <!-- Webapp Card -->
       <button
           type="button"
