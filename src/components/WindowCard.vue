@@ -59,11 +59,13 @@ stroke-width="2.0625" stroke-linecap="round" stroke-linejoin="round" class="luci
 }
 
 // Klick Sound
-const clickSound = new Audio("/sounds/click.mp3")
+const clickSound = new Audio("/sounds/click.wav")
 clickSound.volume = 0.4
+clickSound.playbackRate = 1
 
-const clickSoundFaq = new Audio("/sounds/04_handy-mitteilung-2-473883.mp3")
+const clickSoundFaq = new Audio("/sounds/04_handy-mitteilung-2-473883.wav")
 clickSound.volume = 0.4
+clickSoundFaq.playbackRate = 1
 
 const icons = {
   linkedin: `
