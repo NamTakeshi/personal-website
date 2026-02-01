@@ -61,7 +61,7 @@ onMounted(() => {
   <div class="fixed left-6 top-6 z-50 flex gap-3">
     <!-- Theme Toggle -->
     <button
-        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600 transition-all duration-300 ease-out hover:scale-[1.10] active:scale-[0.97]
+        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600/40 backdrop-blur-xl transition-all duration-300 ease-out hover:scale-[1.10] active:scale-[0.97]
 "
         @click="() => { playClick(); toggleTheme() }"
         aria-label="Toggle theme"
@@ -76,7 +76,7 @@ onMounted(() => {
 
     <!-- Chat Button -->
     <button
-        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600 transition-all duration-300 ease-out hover:scale-[1.10] active:scale-[0.97]"
+        class="w-12 h-12 flex items-center justify-center rounded-full border border-black/10 bg-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-600/40 backdrop-blur-xl transition-all duration-300 ease-out hover:scale-[1.10] active:scale-[0.97]"
         @click="() => { playClick(); chatOpen = true }"
         aria-label="Open chat"
         title="Chat"

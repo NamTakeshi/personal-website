@@ -143,7 +143,7 @@ function closeModal() {
 <template>
   <div class="overflow-hidden w-[760px] max-w-[92vw] rounded-xl border-2 border-black/30 shadow-[0_18px_40px_rgba(0,0,0,0.12)]">
     <!-- Kopfzeile: leer gelassen (kein "home" mehr) -->
-    <div class="flex items-center h-11 px-4 text-base tracking-wide text-white bg-neutral-600">home</div>
+    <div class="flex items-center h-11 px-4 text-base tracking-wide text-white bg-neutral-600 dark:bg-neutral-600/40 backdrop-blur-xl">home</div>
 
     <div class="px-6 py-14 text-center">
       <h1 class="text-[clamp(42px,6vw,64px)] leading-[1.05] font-normal text-neutral-500">
@@ -348,7 +348,7 @@ function closeModal() {
         ></span>
 
         <!-- Text unter dem Icon -->
-        <p class="mt-3 font-semibold text-lg text-neutral-700"">filmmaking</p>
+        <p class="mt-3 font-semibold text-lg text-neutral-700">filmmaking</p>
       </button>
     </div>
 

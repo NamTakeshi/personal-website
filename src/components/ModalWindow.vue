@@ -155,7 +155,7 @@ function onPointerUp(e) {
           ref="headerRef"
           class="flex items-center justify-between h-11 px-4 text-base tracking-wide
        bg-neutral-600 text-white
-       border-b border-white/10"
+       border-b border-white/10 dark:bg-neutral-600/40 backdrop-blur-xl"
           @pointerdown.stop.prevent="onPointerDown"
           :style="{ cursor: dragging ? 'grabbing' : 'grab' }"
         >
