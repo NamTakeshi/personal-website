@@ -184,7 +184,7 @@ function closeModal() {
 
       <!-- Text rechts daneben -->
       <div class="grid gap-2 mb-10">
-        <p class="text-neutral-700 dark:text-white mt-0 sm:mt-6 mb-5">
+        <p class="text-neutral-700 dark:text-white mt-0 sm:mt-6 mb-0 sm:mb-5">
           Heyy! I’m Nam, a 23-year-old guy based in Berlin
           who’s into tech, filmmaking, and photography.
           It's nice to see you here! ^^
@@ -461,10 +461,10 @@ function closeModal() {
 
 
         <div class="grid grid-cols-1 gap-3">
-          <video src="/videos/nyvid.MP4" controls class="rounded-lg w-full aspect-video object-cover"></video>
-          <img src="/images/ny1.jpg" class="rounded-lg w-full aspect-video object-cover"/>
-          <img src="/images/ny2.jpg" class="rounded-lg w-full aspect-video object-cover"/>
-          <img src="/images/ny3.jpg" class="rounded-lg w-full aspect-video object-cover"/>
+          <video src="/videos/nyvid.MP4" controls class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"></video>
+          <img src="/images/ny1.jpg" class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"/>
+          <img src="/images/ny2.jpg" class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"/>
+          <img src="/images/ny3.jpg" class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"/>
         </div>
 
 
@@ -478,9 +478,9 @@ function closeModal() {
         <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-neutral-50 to-transparent mb-4"></div>
 
         <div class="grid grid-cols-1 gap-3">
-          <video src="/videos/Vietnam2.mp4" controls class="rounded-lg w-full aspect-video object-cover"></video>
-          <img src="/images/vn1.jpg" class="rounded-lg w-full aspect-video object-cover"/>
-          <img src="/images/vn2.jpg" class="rounded-lg w-full aspect-video object-cover"/>
+          <video src="/videos/Vietnam2.mp4" controls class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"></video>
+          <img src="/images/vn1.jpg" class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"/>
+          <img src="/images/vn2.jpg" class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"/>
         </div>
 
         <br><br>
@@ -493,9 +493,9 @@ function closeModal() {
         <div class="mx-auto mt-4 h-px w-100 bg-gradient-to-r from-transparent via-neutral-50 to-transparent mb-4"></div>
 
         <div class="grid grid-cols-1 gap-3">
-          <video src="/videos/oceanvid.MOV" controls class="rounded-lg w-full aspect-video object-cover"></video>
-          <img src="/images/ocean1.jpg" class="rounded-lg w-full aspect-video object-cover"/>
-          <img src="/images/ocean2.jpg" class="rounded-lg w-full aspect-video object-cover"/>
+          <video src="/videos/oceanvid.MOV" controls class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"></video>
+          <img src="/images/ocean1.jpg" class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"/>
+          <img src="/images/ocean2.jpg" class="rounded-lg w-full aspect-auto sm:aspect-video object-cover"/>
         </div>
       </section>
 
