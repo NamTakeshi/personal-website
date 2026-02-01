@@ -173,7 +173,7 @@ function closeModal() {
   <!-- ABOUT Modal: Inhalt ergänzt -->
   <ModalWindow title="about" :open="active === 'about'" modal-bg="bg-white dark:bg-transparent backdrop-blur-xl" @close="closeModal">
 
-    <div class="flex items-start gap-4">
+    <div class="flex items-start gap-4 mt-8">
       <!-- Profilbild links -->
       <img
           src="/images/profil6 2.JPG"
@@ -184,7 +184,7 @@ function closeModal() {
 
       <!-- Text rechts daneben -->
       <div class="grid gap-2 mb-10">
-        <p class="text-neutral-700 dark:text-white mt-0 sm:mt-6 mb-0 sm:mb-5">
+        <p class="text-neutral-700 dark:text-white mt-4 sm:mt-6 mb-0 sm:mb-5">
           Heyy! I’m Nam, a 23-year-old guy based in Berlin
           who’s into tech, filmmaking, and photography.
           It's nice to see you here! ^^

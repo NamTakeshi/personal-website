@@ -138,7 +138,7 @@ function onPointerUp(e) {
     <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30" @click="onBackdropClick">
       <div
           ref="modalRef"
-          class="relative overflow-hidden w-[760px] max-w-[92vw] h-[520px] rounded-xl border-2 shadow-[0_18px_40px_rgba(0,0,0,0.12)] max-sm:h-[560px]"
+          class="relative box-border overflow-x-hidden w-[760px] max-w-[92vw] h-[520px] rounded-xl border-2 shadow-[0_18px_40px_rgba(0,0,0,0.12)] max-sm:h-[560px]"
           :class="[props.modalBg === 'bg-white' ? 'border-black/30' : 'border-white/10', props.modalBg]"
           :style="{
     width: props.width,
@@ -178,7 +178,7 @@ function onPointerUp(e) {
             class="overflow-x-hidden overflow-y-auto text-left dark:bg-transparent"
             :style="{ height: `calc(${props.height} - 44px)` }"
         >
-          <div class="h-full min-h-0 px-6 pb-6 flex flex-col"
+          <div class="h-full min-h-0 px-6 pb-6 flex flex-col "
                :class="props.modalBg !== 'bg-white' ? 'text-white' : 'text-neutral-700'"
           >
             <slot />
