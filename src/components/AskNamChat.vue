@@ -78,7 +78,7 @@ async function send() {
     <div class="flex-1 min-h-0 overflow-y-auto rounded-xl border border-black/10 bg-white dark:bg-transparent p-4 pb-4 text-left">
       <div v-for="(m, idx) in messages" :key="idx" class="mb-3">
         <div class="text-xs text-neutral-500 mb-1">
-          {{ m.role === "user" ? "You" : "Assistant" }}
+          {{ m.role === "user" ? "You" : "Takeshi" }}
         </div>
 
         <div
