@@ -10,9 +10,6 @@ import { computed } from "vue"
 // mögliche Werte: "about", "links", "work", webapp oder film (kein Modal offen)
 const active = ref(null)
 
-const isDark = computed(() => document.documentElement.classList.contains("dark"))
-
-
 const items = [
   {
     label: "about",
@@ -65,6 +62,9 @@ stroke-width="2.0625" stroke-linecap="round" stroke-linejoin="round" class="luci
 const clickSound = new Audio("/sounds/click.mp3")
 clickSound.volume = 0.4
 
+const clickSoundFaq = new Audio("/sounds/04_handy-mitteilung-2-473883.mp3")
+clickSound.volume = 0.4
+
 const icons = {
   linkedin: `
     <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -113,6 +113,15 @@ function openModal(key) {
 
   // Modal öffnen
   active.value = key
+}
+
+function playClick() {
+  try {
+    clickSoundFaq.currentTime = 0
+    clickSoundFaq.play()
+  } catch (err) {
+    console.warn("Sound konnte nicht abgespielt werden:", err)
+  }
 }
 
 // merkt sich, welche FAQ offen ist (Index oder null)
@@ -212,7 +221,7 @@ function closeModal() {
       <div class="rounded-lg border border-black/10 dark:border-neutral-700 text-neutral-700 dark:text-white">
         <button
             class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
-            @click="toggleFaq(0)"
+            @click="playClick();toggleFaq(0)"
         >
           <span>Why did you come to the tech industry?</span>
           <span class="text-neutral-400">{{ openFaq === 0 ? "–" : "+" }}</span>
@@ -229,7 +238,7 @@ function closeModal() {
       <div class="rounded-lg border border-black/10 dark:border-neutral-700 text-neutral-700 dark:text-white">
         <button
             class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
-            @click="toggleFaq(1)"
+            @click="playClick();toggleFaq(1)"
         >
           <span>How did you start filmmaking and photography?</span>
           <span class="text-neutral-400">{{ openFaq === 1 ? "–" : "+" }}</span>
@@ -246,7 +255,7 @@ function closeModal() {
       <div class="mb-10 rounded-lg border border-black/10 dark:border-neutral-700 text-neutral-700 dark:text-white">
         <button
             class="flex items-center justify-between w-full px-4 py-3 text-left font-medium"
-            @click="toggleFaq(2)"
+            @click="playClick();toggleFaq(2)"
         >
           <span>What else do you enjoy doing in your free time?</span>
           <span class="text-neutral-400">{{ openFaq === 2 ? "–" : "+" }}</span>
