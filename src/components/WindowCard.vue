@@ -157,7 +157,7 @@ function closeModal() {
 </script>
 
 <template>
-  <div class="overflow-hidden w-[760px] max-w-[92vw] rounded-xl border-2 border-black/30 shadow-[0_18px_40px_rgba(0,0,0,0.12)]">
+  <div class="overflow-x-hidden w-[760px] max-w-[92vw] rounded-xl border-2 border-black/30 shadow-[0_18px_40px_rgba(0,0,0,0.12)]">
     <!-- Kopfzeile: leer gelassen (kein "home" mehr) -->
     <div class="flex items-center h-11 px-4 text-base tracking-wide text-white bg-neutral-600 dark:bg-neutral-600/40 backdrop-blur-xl">home</div>
 

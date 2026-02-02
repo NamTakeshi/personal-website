@@ -141,13 +141,11 @@ function onPointerUp(e) {
           class="relative box-border overflow-x-hidden w-[760px] max-w-[calc(100vw-2rem)] h-[520px] rounded-xl border-2 shadow-[0_18px_40px_rgba(0,0,0,0.12)] max-sm:h-[560px]"
           :class="[props.modalBg === 'bg-white' ? 'border-black/30' : 'border-white/10', props.modalBg]"
           :style="{
-    width: props.width,
-    height: props.height,
-    transform: `translate(-50%,-50%) translate(${offset.x}px, ${offset.y}px)`,
-    left: '50%',
-    top: '50%',
-    position: 'fixed'
-  }"
+  width: props.width,
+  height: props.height,
+  transform: `translate(${offset.x}px, ${offset.y}px)`,
+}"
+
       >
 
       <!-- Header ist das Drag-Handle. -->
