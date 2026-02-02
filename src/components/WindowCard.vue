@@ -390,7 +390,7 @@ function closeModal() {
       </div>
 
       <!-- RIGHT: Text -->
-      <div class="grid gap-4">
+      <div class="grid gap-4 sm:mt-10">
         <!-- Titel + 1 Satz -->
         <div>
           <h3 class="text-4xl font-semibold text-neutral-700 dark:text-white">My Habit Tracker</h3>
