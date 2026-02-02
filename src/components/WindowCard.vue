@@ -286,7 +286,7 @@ function closeModal() {
   <!-- LINKS Modal -->
   <ModalWindow title="links" :open="active === 'links'" width="min(520px, 92vw)"
                height="min(300px, 80vh)" modal-bg="bg-white dark:bg-transparent backdrop-blur-xl" @close="closeModal">
-    <ul class="flex justify-center gap-15 mt-10">
+    <ul class="flex flex-wrap justify-center gap-4 sm:gap-8 mt-10">
       <!-- GitHub -->
       <li>
         <a
