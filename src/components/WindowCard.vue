@@ -461,7 +461,7 @@ function closeModal() {
       @close="closeModal"
   >
     <!-- Alles untereinander, scrollbar durch das Modal selbst -->
-    <div class="grid gap-10 text-neutral-700 dark:text-neutral-200">
+    <div class="grid gap-10 px-1 sm:px-6 text-neutral-700 dark:text-neutral-200">
 
       <!-- New York -->
       <section class="grid gap-3">
