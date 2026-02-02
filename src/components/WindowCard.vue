@@ -1,14 +1,16 @@
 <script setup>
-import { ref } from "vue"
 import ModalWindow from "./ModalWindow.vue"
 import AskNamChat from "./AskNamChat.vue";
 import { computed } from "vue"
+import { ref, onMounted } from "vue"
 
-
-// Test
-// active hält den Schlüssel des aktuell offenen Modals:
-// mögliche Werte: "about", "links", "work", webapp oder film (kein Modal offen)
 const active = ref(null)
+
+const isMobile = ref(false)
+
+onMounted(() => {
+  isMobile.value = window.matchMedia("(pointer: coarse)").matches
+})
 
 const items = [
   {
@@ -64,7 +66,7 @@ clickSound.volume = 0.4
 clickSound.playbackRate = 1
 
 const clickSoundFaq = new Audio("/sounds/04_handy-mitteilung-2-473883.wav")
-clickSound.volume = 0.4
+clickSoundFaq.volume = 0.4
 clickSoundFaq.playbackRate = 1
 
 const icons = {
@@ -104,20 +106,22 @@ const icons = {
 
 // Öffnet ein Modal anhand des Schlüssels (z.B. "about")
 function openModal(key) {
-  // Klick-Sound abspielen (immer von vorne)
-  try {
-    clickSound.currentTime = 0
-    clickSound.play()
-  } catch (err) {
-    // Falls Audio blockiert wird, ignorieren wir es
-    console.warn("Klick-Sound konnte nicht abgespielt werden:", err)
+  if (!isMobile.value) {
+    try {
+      clickSound.currentTime = 0
+      clickSound.play()
+    } catch (err) {
+      console.warn("Klick-Sound konnte nicht abgespielt werden:", err)
+    }
   }
 
-  // Modal öffnen
   active.value = key
 }
 
+
 function playClick() {
+  if (isMobile.value) return
+
   try {
     clickSoundFaq.currentTime = 0
     clickSoundFaq.play()
@@ -125,6 +129,7 @@ function playClick() {
     console.warn("Sound konnte nicht abgespielt werden:", err)
   }
 }
+
 
 // merkt sich, welche FAQ offen ist (Index oder null)
 const openFaq = ref(null)
@@ -137,13 +142,13 @@ function toggleFaq(index) {
 
 // Schließt das aktuell offene Modal
 function closeModal() {
-
-  try {
-    clickSound.currentTime = 0
-    clickSound.play()
-  } catch (err) {
-    // Falls Audio blockiert wird, ignorieren wir es
-    console.warn("Klick-Sound konnte nicht abgespielt werden:", err)
+  if (!isMobile.value) {
+    try {
+      clickSound.currentTime = 0
+      clickSound.play()
+    } catch (err) {
+      console.warn("Klick-Sound konnte nicht abgespielt werden:", err)
+    }
   }
 
   active.value = null

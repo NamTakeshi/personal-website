@@ -32,8 +32,14 @@ const clickSound = new Audio("/sounds/pop.wav")
 clickSound.volume = 0.4
 clickSound.playbackRate = 1
 
+const isMobile = ref(false)
+
+onMounted(() => {
+  isMobile.value = window.matchMedia("(pointer: coarse)").matches
+})
 
 function playClick() {
+  if (isMobile.value) return
   try {
     clickSound.currentTime = 0
     clickSound.play()
