@@ -179,7 +179,7 @@ function onPointerUp(e) {
             class="overflow-x-hidden overflow-y-auto text-left dark:bg-transparent"
             :style="{ height: `calc(${props.height} - 44px)` }"
         >
-          <div class="h-full min-h-0 px-3 sm:px-6 pb-6 flex flex-col"
+          <div class="h-full min-h-0 px-1 sm:px-6 pb-6 flex flex-col"
                :class="props.modalBg !== 'bg-white' ? 'text-white' : 'text-neutral-700'"
           >
             <slot />
