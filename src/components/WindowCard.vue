@@ -455,8 +455,8 @@ function closeModal() {
   <ModalWindow
       title="filmmaking"
       :open="active === 'film'"
-      width="min(1100px, 94vw)"
-      height="min(680px, 86vh)"
+      width="min(1100px, calc(100vw - 2rem))"
+      height="min(680px, calc(100vh - 2rem))"
       modal-bg="bg-white dark:bg-transparent backdrop-blur-xl"
       @close="closeModal"
   >
