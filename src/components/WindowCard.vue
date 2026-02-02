@@ -284,7 +284,8 @@ function closeModal() {
   </ModalWindow>
 
   <!-- LINKS Modal -->
-  <ModalWindow title="links" :open="active === 'links'" width="520px" height="300px" modal-bg="bg-white dark:bg-transparent backdrop-blur-xl" @close="closeModal">
+  <ModalWindow title="links" :open="active === 'links'" width="min(520px, 92vw)"
+               height="min(300px, 80vh)" modal-bg="bg-white dark:bg-transparent backdrop-blur-xl" @close="closeModal">
     <ul class="flex justify-center gap-15 mt-10">
       <!-- GitHub -->
       <li>
@@ -328,7 +329,8 @@ function closeModal() {
   <ModalWindow
       title="work"
       :open="active === 'work'"
-      width="520px" height="300px"
+      width="min(520px, 92vw)"
+      height="min(300px, 80vh)"
       modal-bg="bg-white dark:bg-transparent backdrop-blur-xl"
       @close="closeModal"
   >
